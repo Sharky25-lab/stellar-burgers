@@ -1,11 +1,12 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { OrderStatusProps } from './type';
 import { OrderStatusUI } from '@ui';
 
 const statusText: { [key: string]: string } = {
   pending: 'Готовится',
   done: 'Выполнен',
-  created: 'Создан'
+  created: 'Создан',
+  cancelled: 'Отменён'
 };
 
 export const OrderStatus: FC<OrderStatusProps> = ({ status }) => {
@@ -16,6 +17,9 @@ export const OrderStatus: FC<OrderStatusProps> = ({ status }) => {
       break;
     case 'done':
       textStyle = '#00CCCC';
+      break;
+    case 'cancelled':
+      textStyle = '#8585AD';
       break;
     default:
       textStyle = '#F2F2F3';
