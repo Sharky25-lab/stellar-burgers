@@ -13,9 +13,3 @@
 .orders {
   width: 100%;
 }
-
-.titleBox {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
