@@ -4,6 +4,7 @@ import {
   Routes,
   useLocation,
   useNavigate,
+  useParams,
   Location as RouterLocation
 } from 'react-router-dom';
 
@@ -32,6 +33,19 @@ import { checkUserAuth } from '../../services/slices/user-slice';
 
 type TLocationState = {
   background?: RouterLocation;
+};
+
+const OrderModal = () => {
+  const navigate = useNavigate();
+  const { number } = useParams<{ number: string }>();
+
+  const title = number ? `#${number.padStart(6, '0')}` : '';
+
+  return (
+    <Modal title={title} onClose={() => navigate(-1)}>
+      <OrderInfo />
+    </Modal>
+  );
 };
 
 const App = () => {
